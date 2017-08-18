@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src='http://cdn.bootcss.com/redux/3.5.2/redux.min.js'></script>
+    </head>
+    <body>
+        <script>
+            window.onload = function(){
+                // var store = Redux.createStore(reducer);
+
+                // function reducer(state, action) {
+                //     state = state ||  {counter: 0};
+                //     switch (action.type) {
+                //         case 'INCREMENT':
+                //             return {counter: state.counter + 1};
+                //         case 'DECREMENT':
+                //             return {counter: state.counter - 1};
+                //         default:
+                //             return state;
+                //     }
+                // }
+                // console.log(store.getState());
+
+                // function inc() {
+                //     return {type:'INCREMENT'};
+                // }
+                // function dec() {
+                //     return {type:'DECREMENT'};
+                // }
+                // store.dispatch(inc());
+                // console.log(store.getState());
+                // store.dispatch(dec());
+                // console.log(store.getState());
+                // store.dispatch(inc());
+                // store.dispatch(inc());
+                // store.dispatch(inc());
+                // console.log(store.getState());
+
+                //reduce
+                //下面的示例向数组添加舍入后的值。使用初始值 0 调用 reduce 方法。
+                // var arr = [10.9, 11.2, 5.3];
+
+                // function callback(pre,cur) {
+                //     return pre + Math.round(cur);
+                // }
+                // var result = arr.reduce(callback);
+                // console.log(result);
+                //下面的示例向数组中添加值。 currentIndex 和 array1 参数用于回调函数。
+                // var arr = [1,2,3,4,8];
+                // function addDigit(pre,cur,index,arr){
+                //     var exp = arr.length-index-1;
+                //     return pre + cur*Math.pow(10,exp);
+                // }
+                // var result = arr.reduce(addDigit,0)
+                // console.log(result);
+                //下面的示例获取一个数组，该数组仅包含另一个数组中的介于 1 和 10 之间值。提供给 reduce 方法的初始值是一个空数组。
+                // function Process(pre,cur) {
+                //     var arr ;
+                //     if(cur>=1 && cur<=10){
+                //         arr = pre.concat(cur);
+                //     }else{
+                //         arr = pre;
+                //     }
+                //     return arr;
+                // }
+                // var arr = [12,3,-2,34,4,7];
+                // var result = arr.reduce(Process,[]);
+                // console.log(result);
+                //深拷贝
+                var copy = function(p,c){
+                    var c = c || p.constructor == Array ? []:{};
+                    for(var i in p){
+                        if(typeof p[i] == 'object'){
+                            c[i] = p[i].constructor == Array ? []:{};
+                            copy(p[i],c[i]); 
+                        }else{
+                            c[i] = p[i]
+                        }
+                    }
+                    return c;
+                }
+
+                var F = ['1','2'];
+                var C = copy(F);
+                console.log(C);
+                console.log(C);
+                console.log(F);
+
+            }
+            
+
+
+
+
+        </script>
+    </body>
+</html>
